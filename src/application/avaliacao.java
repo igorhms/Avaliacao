@@ -10,7 +10,7 @@ class avaliacao {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int qntCompra, atraso, pontCompra;
+		int qntCompra, atraso, pontCompra, inadimp, pontPag;
 		double ticketMedio;
 		char pagamento;
 		
@@ -44,6 +44,26 @@ class avaliacao {
 		}	
 		System.out.println();
 		System.out.printf("Score de volume de compras = %d%n", pontCompra);
+		
+		if (atraso == 0){
+			inadimp = 0;
+		}
+		else if (atraso == 1){
+			inadimp = 15;
+		}
+		else {
+			inadimp = 30;
+		}
+		
+		if (pagamento == 'b' || pagamento == 'B' || pagamento == 'C' || pagamento == 'c'){
+			pontPag = 10;
+		}
+		else {
+			pontPag = 5;
+		}	
+		System.out.println();
+		System.out.printf("Score de inadimplência = %d%n", inadimp);
+		System.out.printf("Score de forma de pagamento = %d%n", pontPag);
 		
 		sc.close();
 	}
