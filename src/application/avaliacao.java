@@ -10,7 +10,7 @@ class avaliacao {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int qntCompra, atraso;
+		int qntCompra, atraso, pontCompra;
 		double ticketMedio;
 		char pagamento;
 		
@@ -29,6 +29,21 @@ class avaliacao {
 		atraso = sc.nextInt();
 		System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
 		pagamento = sc.next().charAt(0);
+		
+		if (ticketMedio > 3000.00){
+			pontCompra = 60;
+		}
+		else if (ticketMedio < 3000.00 & qntCompra > 2){
+			pontCompra = 40;
+		}
+		else if (ticketMedio < 3000.00){
+			pontCompra = 20;
+		}
+		else {
+			pontCompra = 0;
+		}	
+		System.out.println();
+		System.out.printf("Score de volume de compras = %d%n", pontCompra);
 		
 		sc.close();
 	}
