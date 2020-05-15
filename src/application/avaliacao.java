@@ -10,7 +10,7 @@ class avaliacao {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int qntCompra, atraso, pontCompra, inadimp, pontPag;
+		int qntCompra, atraso, pontCompra, inadimp, pontPag, total;
 		double ticketMedio;
 		char pagamento;
 		
@@ -43,7 +43,7 @@ class avaliacao {
 			pontCompra = 0;
 		}	
 		System.out.println();
-		System.out.printf("Score de volume de compras = %d%n", pontCompra);
+		System.out.printf("Score de volume de compras = %d pontos%n", pontCompra);
 		
 		if (atraso == 0){
 			inadimp = 0;
@@ -62,8 +62,20 @@ class avaliacao {
 			pontPag = 5;
 		}	
 		System.out.println();
-		System.out.printf("Score de inadimplência = %d%n", inadimp);
+		System.out.printf("Score de inadimplência = %d pontos%n", inadimp);
 		System.out.printf("Score de forma de pagamento = %d%n", pontPag);
+		
+		total = pontCompra + inadimp + pontPag;		
+		System.out.println();
+		if (total > 75){
+			System.out.println("Classificação final = CLIENTE OURO");
+		}
+		else if (total > 25 && total <= 75){
+			System.out.println("Classificação final = CLIENTE PRATA");	
+		}
+		else {
+			System.out.println("Classificação final = CLIENTE BRONZE");
+		}
 		
 		sc.close();
 	}
